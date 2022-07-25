@@ -1,0 +1,26 @@
+.danger {
+    border: red 1px solid;
+    outline:none;
+    
+  }
+
+.form{
+  position: relative;
+  left: 650px;
+  top: 90px;
+}
+
+.btn{
+  
+  font-size: 20px;
+  padding: 3px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color:#F4D03F ;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+
+  

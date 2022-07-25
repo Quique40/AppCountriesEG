@@ -1,0 +1,62 @@
+.cards{
+    display: inline-table;
+    
+    margin-left: 3em;
+    margin-right: 3em;    
+    margin-top: 9em;
+    margin-bottom: 2em;
+    padding-bottom:15px;
+}
+
+.buttons{
+    position: absolute;
+    right:40px;
+    top: 20px;
+
+}
+
+.SearchBar{
+    position: absolute;
+    right: 170px;
+    top: 90px;
+}
+
+.reload{
+    position: absolute;
+    left: 170px;
+    top: 90px;
+}
+
+.btn{
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    background-color:#F4D03F ;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.btn2{
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 7px;
+    margin-left: 6px;
+    background-color:#F4D03F ;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.ordFilter{
+    
+    position: relative;
+    left: 40px;
+    top: 90px;
+    
+}
+
+/* .cards */
+/* display: inline-block;
+margin-left: 1em;
+margin-right: 1em;
+margin-top: 4em;     */

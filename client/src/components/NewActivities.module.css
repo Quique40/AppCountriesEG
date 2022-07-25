@@ -1,0 +1,51 @@
+.danger {
+    border: red 1px solid;
+    outline:none;
+  }
+
+p{
+  color:white;
+}  
+
+.form{
+  text-align: left;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+  margin-left: 30px ;
+}
+
+.btn{
+  position: relative;
+  top:20px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  background-color:#F4D03F ;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.btn:hover{
+  background-color: white;
+  color:#F4D03F;
+}
+
+.create{
+  position: relative;
+  top:20px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  background-color:#F4D03F ;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.create:hover{
+  background-color:black ;
+}

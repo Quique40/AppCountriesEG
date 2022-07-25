@@ -1,0 +1,59 @@
+
+
+.flag{
+    position: absolute;    
+    top: 50px;
+    left: 257px;
+    
+}
+
+.detailCountry{
+    background-color: #F8C471;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    line-height:100%;
+    text-align: left;
+    border-radius: 10px;
+    padding: 0.8em;
+}
+
+.return{
+    position: absolute;
+    bottom: 150px;
+    left:295px;
+    
+}
+
+.btn{
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    background-color:#F4D03F ;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.btn:hover {
+    background-color: white;
+    color:#F4D03F;
+}
+
+.detailActivities{
+    position: absolute;
+    top: 30px;
+    right: 330px;
+    background-color: #F8C471;
+    
+}
+
+
+.infoActiv{
+    
+    padding-top:0.017px;
+    padding-bottom: 0.017px;
+    line-height:45%;
+    text-align: left;
+}
+
