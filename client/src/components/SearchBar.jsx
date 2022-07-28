@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getNameCountries } from "../redux/action";
+import { getNameCountries, setCurrentPage } from "../redux/action";
 
 import Styles from "./SearchBar.module.css";
 
@@ -13,7 +13,7 @@ function Validate(name) {
   return error;
 }
 
-export default function SearchBar({ setCurrentPage, setCountriesPerPage }) {
+export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
@@ -35,8 +35,7 @@ export default function SearchBar({ setCurrentPage, setCountriesPerPage }) {
 
     if (Object.values(errors).length === 0) {
       dispatch(getNameCountries(name));
-      setCurrentPage(1);
-      setCountriesPerPage(9);
+      dispatch(setCurrentPage(1));
       setName("");
     }
   }

@@ -2,9 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import * as action from "../redux/action";
+// import * as action from "../redux/action";
 
-import { bindActionCreators } from "redux";
+// import { bindActionCreators } from "redux";
 import {
   getAllCountries,
   filterCountriesByContinents,
@@ -13,6 +13,7 @@ import {
   getCountriesActivities,
   filterCountriesByActivities,
   getAllActivities,
+  setCurrentPage,
 } from "../redux/action";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -24,11 +25,11 @@ export default function Home() {
   const dispatch = useDispatch(); //despacho las actions
   // const countries = useSelector(state => state.countries);  //traemos todo lo que está en estado de countries
   // const activities = useSelector((state) => state.activities);
-  const { setCurrentPage } = bindActionCreators(action, dispatch);
+  // const { setCurrentPage } = bindActionCreators(action, dispatch);
   const countriActiv = useSelector((state) => state.allCountries);
 
   const currentPage = useSelector((state) => state.currentPage);
-  console.log(currentPage);
+
   // const [currentPage, setCurrentPage] = useState(1);
 
   // const [countriesPerPage, setCountriesPerPage] = useState(10);
@@ -55,9 +56,7 @@ export default function Home() {
   function handleFilterContinent(e) {
     e.preventDefault();
     dispatch(filterCountriesByContinents(e.target.value));
-    setCurrentPage(1);
-    // setCountriesPerPage(9);
-    //
+    dispatch(setCurrentPage(1));
 
     if (orderName) {
       dispatch(orderBy(orderName));
@@ -67,8 +66,7 @@ export default function Home() {
   function handleFilterActivities(e) {
     e.preventDefault();
     dispatch(filterCountriesByActivities(e.target.value));
-    setCurrentPage(1);
-    // setCountriesPerPage(9);
+    dispatch(setCurrentPage(1));
 
     if (orderName) {
       dispatch(orderBy(orderName));
@@ -81,14 +79,13 @@ export default function Home() {
 
     setOrderName(e.target.value);
 
-    setCurrentPage(1);
+    dispatch(setCurrentPage(1));
     // setCountriesPerPage(9);
   }
 
   let handleReload = (e) => {
     e.preventDefault();
-    setCurrentPage(1);
-    // setCountriesPerPage(9);
+    dispatch(setCurrentPage(1));
     dispatch(getCountriesActivities());
   };
 
@@ -106,10 +103,7 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        <SearchBar
-        // setCurrentPage={setCurrentPage}
-        // setCountriesPerPage={setCountriesPerPage}
-        />
+        <SearchBar />
       </div>
 
       <div className={styles.reload}>

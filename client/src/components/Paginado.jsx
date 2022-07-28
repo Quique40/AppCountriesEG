@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Paginado.module.sass";
 
-import * as action from "../redux/action";
-
-import { bindActionCreators } from "redux";
+import { setCurrentPage } from "../redux/action";
 
 export default function Paginado() {
   // React:
@@ -15,29 +13,25 @@ export default function Paginado() {
   // Redux:
   const dispatch = useDispatch();
   const countriActiv = useSelector((state) => state.allCountries);
-  const { setCurrentPage } = bindActionCreators(action, dispatch);
+
   const currentPage = useSelector((state) => state.currentPage);
   const cardsPerPage = useSelector((state) => state.cardsPerPage);
-  // let auxMaxPage = Math.floor(countriActiv.length / cardsPerPage);
-
-  // if (auxMaxPage < 1) auxMaxPage = 1;
-  // else auxMaxPage = auxMaxPage;
 
   let auxMaxPage = Math.floor(countriActiv.length / cardsPerPage);
+
   if (auxMaxPage < 1) maxPages = 1;
   else maxPages = auxMaxPage;
 
   useEffect(() => {
     setLocalCurrPage(currentPage);
-
     setMaxPages(maxPages);
-  }, [currentPage, cardsPerPage, countriActiv.length]);
+  }, [currentPage, cardsPerPage, countriActiv.length, maxPages]);
 
   const handleChangeInput = (e) => {
     e.preventDefault();
     setLocalCurrPage(e.target.value);
     if (e.target.value >= 1 && e.target.value <= maxPages)
-      setCurrentPage(e.target.value);
+      dispatch(setCurrentPage(e.target.value));
   };
 
   return (
@@ -45,7 +39,7 @@ export default function Paginado() {
       <div>
         <button
           className={currentPage > 1 ? s.pagButton : s.pagButtonDisabled}
-          onClick={() => currentPage > 1 && setCurrentPage("prev")}
+          onClick={() => currentPage > 1 && dispatch(setCurrentPage("prev"))}
         >
           {"< Prev"}
         </button>
@@ -64,7 +58,9 @@ export default function Paginado() {
           className={
             currentPage !== maxPages ? s.pagButton : s.pagButtonDisabled
           }
-          onClick={() => currentPage !== maxPages && setCurrentPage("next")}
+          onClick={() =>
+            currentPage !== maxPages && dispatch(setCurrentPage("next"))
+          }
         >
           {"Next >"}
         </button>
