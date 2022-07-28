@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import * as action from "../redux/action";
+
+import { bindActionCreators } from "redux";
 import {
   getAllCountries,
   filterCountriesByContinents,
@@ -21,56 +24,28 @@ export default function Home() {
   const dispatch = useDispatch(); //despacho las actions
   // const countries = useSelector(state => state.countries);  //traemos todo lo que está en estado de countries
   // const activities = useSelector((state) => state.activities);
-
+  const { setCurrentPage } = bindActionCreators(action, dispatch);
   const countriActiv = useSelector((state) => state.allCountries);
 
-  // console.log(activities);
+  const currentPage = useSelector((state) => state.currentPage);
+  console.log(currentPage);
+  // const [currentPage, setCurrentPage] = useState(1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const countriesPerPage1 = 9;
-  const [countriesPerPage, setCountriesPerPage] = useState(countriesPerPage1); //pag1: 9 countries, pag2 en adelante: 10 countries
+  // const [countriesPerPage, setCountriesPerPage] = useState(10);
 
   const [orderName, setOrderName] = useState("");
 
-  let indexOfLastCountry;
-  let indexOfFirstCountry;
-  let currentCountries;
-
-  const countriesPerPage2 = 10;
-
-  if (countriesPerPage === 9) {
-    indexOfLastCountry = currentPage * 9;
-    indexOfFirstCountry = indexOfLastCountry - 9;
-    currentCountries = countriActiv.slice(
-      indexOfFirstCountry,
-      indexOfLastCountry
-    );
-  }
-
-  if (countriesPerPage === 10) {
-    indexOfLastCountry = currentPage * 10;
-    indexOfFirstCountry = indexOfLastCountry - 10;
-    currentCountries = countriActiv.slice(
-      indexOfFirstCountry - 1,
-      indexOfLastCountry - 1
-    );
-  }
-
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    if (pageNumber >= 2) {
-      setCountriesPerPage(countriesPerPage2);
-    }
-    console.log(countriesPerPage);
-    if (pageNumber === 1) {
-      setCountriesPerPage(countriesPerPage1);
-    }
-  };
+  let indexOfLastCountry = currentPage * 10;
+  let indexOfFirstCountry = indexOfLastCountry - 10;
+  let currentCountries = countriActiv.slice(
+    indexOfFirstCountry,
+    indexOfLastCountry
+  );
 
   const activities = useSelector((state) => state.activities);
 
   useEffect(() => {
+    // dispatch(setCurrentPage());
     dispatch(clearDetail());
     dispatch(getAllCountries());
     dispatch(getAllActivities());
@@ -81,7 +56,8 @@ export default function Home() {
     e.preventDefault();
     dispatch(filterCountriesByContinents(e.target.value));
     setCurrentPage(1);
-    setCountriesPerPage(9);
+    // setCountriesPerPage(9);
+    //
 
     if (orderName) {
       dispatch(orderBy(orderName));
@@ -92,7 +68,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(filterCountriesByActivities(e.target.value));
     setCurrentPage(1);
-    setCountriesPerPage(9);
+    // setCountriesPerPage(9);
 
     if (orderName) {
       dispatch(orderBy(orderName));
@@ -106,13 +82,13 @@ export default function Home() {
     setOrderName(e.target.value);
 
     setCurrentPage(1);
-    setCountriesPerPage(9);
+    // setCountriesPerPage(9);
   }
 
   let handleReload = (e) => {
     e.preventDefault();
     setCurrentPage(1);
-    setCountriesPerPage(9);
+    // setCountriesPerPage(9);
     dispatch(getCountriesActivities());
   };
 
@@ -131,8 +107,8 @@ export default function Home() {
       </div>
       <div>
         <SearchBar
-          setCurrentPage={setCurrentPage}
-          setCountriesPerPage={setCountriesPerPage}
+        // setCurrentPage={setCurrentPage}
+        // setCountriesPerPage={setCountriesPerPage}
         />
       </div>
 
@@ -198,6 +174,14 @@ export default function Home() {
         </select>
       </div>
       <div>
+        <Paginado
+        // countries={countriActiv.length}
+        // // paginado={paginado}
+        // countriesPerPage={countriesPerPage}
+        // currentPage={currentPage}
+        // setCurrentPage={setCurrentPage}
+        />
+
         {currentCountries &&
           currentCountries.map((e) => {
             return (
@@ -210,10 +194,11 @@ export default function Home() {
           })}
 
         <Paginado
-          countriesPerPage1={countriesPerPage1}
-          countriesPerPage2={countriesPerPage2}
-          countries={countriActiv.length}
-          paginado={paginado}
+        // countries={countriActiv.length}
+        // // paginado={paginado}
+        // countriesPerPage={countriesPerPage}
+        // currentPage={currentPage}
+        // setCurrentPage={setCurrentPage}
         />
       </div>
     </div>

@@ -8,6 +8,9 @@ const initialState = {
   activities: [],
 
   detail: [],
+
+  currentPage: 1,
+  cardsPerPage: 10,
 };
 
 function reducer(state = initialState, { type, payload }) {
@@ -16,7 +19,6 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         countries: payload,
-        // allCountries : payload
       };
 
     case "GET_ACTIVITIES":
@@ -40,7 +42,7 @@ function reducer(state = initialState, { type, payload }) {
     case "GET_NAME_COUNTRIES":
       return {
         ...state,
-        // countries: payload,
+
         allCountries: payload,
       };
 
@@ -123,6 +125,22 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         allCountries: popOrder,
       };
+
+    case "UPDATE_PAGE":
+      let countriesUpDate = state.allCountries;
+      let currentPage = state.currentPage;
+
+      if (payload === "next") currentPage++;
+      if (payload === "prev") currentPage--;
+      if (payload !== "prev" && payload !== "next")
+        currentPage = parseInt(payload);
+
+      return {
+        ...state,
+        currentPage: currentPage,
+        allCountries: countriesUpDate,
+      };
+
     default:
       return state;
   }

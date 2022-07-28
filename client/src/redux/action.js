@@ -104,7 +104,6 @@ export function getDetail(id) {
       });
     } catch (error) {
       if (error.response) {
-        // console.log(error.response.data)
         alert(error.response.data);
       }
     }
@@ -113,4 +112,11 @@ export function getDetail(id) {
 
 export function clearDetail() {
   return { type: "CLEAR_DETAIL" };
+}
+
+export function setCurrentPage(payload) {
+  return {
+    type: "UPDATE_PAGE",
+    payload,
+  };
 }
