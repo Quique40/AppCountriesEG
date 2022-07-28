@@ -14,12 +14,12 @@ import {
   filterCountriesByActivities,
   getAllActivities,
   setCurrentPage,
-} from "../redux/action";
-import Card from "./Card";
-import Paginado from "./Paginado";
-import SearchBar from "./SearchBar";
+} from "../../redux/action";
+import Card from "../Card/Card";
+import Pagination from "../Pagination/Pagination";
+import SearchBar from "../SearchBar/SearchBar";
 
-import styles from "./Home.module.css";
+import styles from "../Home/Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch(); //despacho las actions
@@ -168,7 +168,7 @@ export default function Home() {
         </select>
       </div>
       <div>
-        <Paginado
+        <Pagination
         // countries={countriActiv.length}
         // // paginado={paginado}
         // countriesPerPage={countriesPerPage}
@@ -187,7 +187,7 @@ export default function Home() {
             );
           })}
 
-        <Paginado
+        <Pagination
         // countries={countriActiv.length}
         // // paginado={paginado}
         // countriesPerPage={countriesPerPage}

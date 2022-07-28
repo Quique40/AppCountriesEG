@@ -6,7 +6,7 @@ import {
   getDetail,
   getAllCountries,
   getCountriesActivities,
-} from "../redux/action";
+} from "../../redux/action";
 import styles from "./DetailCountries.module.css";
 
 export default function Detail(props) {

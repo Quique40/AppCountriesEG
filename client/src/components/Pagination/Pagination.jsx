@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import s from "./Paginado.module.sass";
+import s from "../Pagination/Pagination.module.sass";
 
-import { setCurrentPage } from "../redux/action";
+import { setCurrentPage } from "../../redux/action";
 
 export default function Paginado() {
   // React:

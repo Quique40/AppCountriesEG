@@ -6,7 +6,7 @@ import {
   postActivities,
   getCountriesActivities,
   getAllActivities,
-} from "../redux/action";
+} from "../../redux/action";
 
 import Styles from "./NewActivities.module.css";
 
