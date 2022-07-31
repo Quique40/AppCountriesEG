@@ -90,19 +90,17 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.buttons}>
         <Link to="/">
           <button className={styles.btn2}>Intro</button>
         </Link>
-        <Link to="/home">
-          <button className={styles.btn2}>Home</button>
-        </Link>
+
         <Link to="/activities">
           <button className={styles.btn2}>Create tourist activity</button>
         </Link>
       </div>
-      <div>
+      <div className={styles.searchBar}>
         <SearchBar />
       </div>
 
@@ -167,33 +165,40 @@ export default function Home() {
             ))}
         </select>
       </div>
-      <div>
-        <Pagination
-        // countries={countriActiv.length}
-        // // paginado={paginado}
-        // countriesPerPage={countriesPerPage}
-        // currentPage={currentPage}
-        // setCurrentPage={setCurrentPage}
-        />
-
-        {currentCountries &&
-          currentCountries.map((e) => {
-            return (
-              <div className={styles.cards} key={e.id}>
+      <div className={styles.cardsCont}>
+        <div className={styles.paginationTop}>
+          <Pagination
+          // countries={countriActiv.length}
+          // // paginado={paginado}
+          // countriesPerPage={countriesPerPage}
+          // currentPage={currentPage}
+          // setCurrentPage={setCurrentPage}
+          />
+        </div>
+        <div className={styles.cardsComponent}>
+          {currentCountries &&
+            currentCountries.map((e) => {
+              return (
                 <Link to={"/home/" + e.id}>
-                  <Card name={e.name} flag={e.flag} continent={e.continent} />
+                  <Card
+                    key={e.id}
+                    name={e.name}
+                    flag={e.flag}
+                    continent={e.continent}
+                  />
                 </Link>
-              </div>
-            );
-          })}
-
-        <Pagination
-        // countries={countriActiv.length}
-        // // paginado={paginado}
-        // countriesPerPage={countriesPerPage}
-        // currentPage={currentPage}
-        // setCurrentPage={setCurrentPage}
-        />
+              );
+            })}
+        </div>
+        <div className={styles.paginationBottom}>
+          <Pagination
+          // countries={countriActiv.length}
+          // // paginado={paginado}
+          // countriesPerPage={countriesPerPage}
+          // currentPage={currentPage}
+          // setCurrentPage={setCurrentPage}
+          />
+        </div>
       </div>
     </div>
   );

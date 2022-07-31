@@ -1,32 +1,66 @@
-.cards{
-    display: inline-table;
+.container{
     
-    margin-left: 3em;
-    margin-right: 3em;    
-    margin-top: 9em;
-    margin-bottom: 2em;
-    padding-bottom:15px;
+    flex-direction: column;
+    height: 100%;
 }
 
+.cardsCont{
+    height: 100%;
+    display: flex;
+    padding:0;
+    margin-top: 5em;
+    flex-direction: column;
+    
+}
+
+
+
+.paginationTop{
+    padding-bottom: 3em;
+}
+.paginationBottom{
+    padding-top: 3em;
+}
+.cardsComponent{    
+    display:grid;   
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3em;
+    column-gap: 8em;    
+}
+
+@media (max-width: 800px) {
+ .cardsComponent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3em;
+    column-gap: 4em;    
+ }   
+}
+
+/* 
 .buttons{
     position: absolute;
     right:40px;
     top: 20px;
+    padding: 0%;
+} */
 
-}
 
-.SearchBar{
+/* 
+.searchBar{
     position: absolute;
     right: 170px;
     top: 90px;
 }
+ */
 
-.reload{
-    position: absolute;
+/* .reload{
+    position: relative;
     left: 170px;
     top: 90px;
-}
+} */
 
+/* 
 .btn{
     border-radius: 10px;
     font-size: 20px;
@@ -35,7 +69,9 @@
     color: white;
     font-weight: bold;
     border: none;
-}
+} */
+
+/* 
 .btn2{
     border-radius: 10px;
     font-size: 15px;
@@ -45,15 +81,16 @@
     color: white;
     font-weight: bold;
     border: none;
-}
+} */
 
+/* 
 .ordFilter{
     
     position: relative;
     left: 40px;
     top: 90px;
     
-}
+} */
 
 /* .cards */
 /* display: inline-block;

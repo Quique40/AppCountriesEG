@@ -1,16 +1,38 @@
-.card{
+.cardContainer{
     background-color: #F8C471;
-    font-size: 15px;
-    color: black;
+    /* font-size: 15px;
+    color: black; */
     line-height:100%;
 
     border-radius: 10px;
     padding:1em;
 
     width: 200px;
+    height: 200px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.continent{
+    margin: 0.25em 0;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #090446;
+    padding: 0.4em;
+    
+}
+
+.name{
+    margin: 0.25em 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.9rem;
+    color: #090446;
+    font-weight: bold;
+    
 }
 
 a{
