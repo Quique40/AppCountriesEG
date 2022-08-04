@@ -11,6 +11,8 @@ const initialState = {
 
   currentPage: 1,
   cardsPerPage: 10,
+
+  orderName: "",
 };
 
 function reducer(state = initialState, { type, payload }) {
@@ -92,7 +94,7 @@ function reducer(state = initialState, { type, payload }) {
 
     case "ORDER_BY_NAME":
       const nameOrder =
-        payload === "asc-name"
+        state.orderName === "asc-name"
           ? state.allCountries.sort(function (a, b) {
               if (a.name > b.name) return 1;
               if (b.name > a.name) return -1;
@@ -110,7 +112,7 @@ function reducer(state = initialState, { type, payload }) {
       };
     case "ORDER_BY_POPULATION":
       const popOrder =
-        payload === "asc-pop"
+        state.orderName === "asc-pop"
           ? state.allCountries.sort(function (a, b) {
               if (a.population > b.population) return 1;
               if (b.population > a.population) return -1;
@@ -121,9 +123,16 @@ function reducer(state = initialState, { type, payload }) {
               if (b.population > a.population) return 1;
               return 0;
             });
+
       return {
         ...state,
         allCountries: popOrder,
+      };
+
+    case "STATE_SORT":
+      return {
+        ...state,
+        orderName: payload,
       };
 
     case "UPDATE_PAGE":

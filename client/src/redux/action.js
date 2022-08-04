@@ -93,6 +93,13 @@ export function orderBy(payload) {
   }
 }
 
+export function changeSort(payload) {
+  return {
+    type: "STATE_SORT",
+    payload,
+  };
+}
+
 export function getDetail(id) {
   return async function (dispatch) {
     try {
