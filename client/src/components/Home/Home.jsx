@@ -17,15 +17,9 @@ export default function Home() {
   const dispatch = useDispatch();
   const countriActiv = useSelector((state) => state.allCountries);
   const currentPage = useSelector((state) => state.currentPage);
+
+  // eslint-disable-next-line
   const orderName = useSelector((state) => state.orderName);
-
-  let indexOfLastCountry = currentPage * 10;
-  let indexOfFirstCountry = indexOfLastCountry - 10;
-
-  let currentCountries = countriActiv.slice(
-    indexOfFirstCountry,
-    indexOfLastCountry
-  );
 
   useEffect(() => {
     dispatch(clearDetail());
@@ -33,6 +27,16 @@ export default function Home() {
     dispatch(getCountriesActivities());
   }, [dispatch]);
 
+  console.log(countriActiv);
+  let indexOfLastCountry = currentPage * 10;
+  let indexOfFirstCountry = indexOfLastCountry - 10;
+
+  let countriesPage = countriActiv.slice(
+    indexOfFirstCountry,
+    indexOfLastCountry
+  );
+
+  console.log(countriesPage);
   return (
     <div className={styles.container}>
       <div>
@@ -43,8 +47,8 @@ export default function Home() {
           <Pagination />
         </div>
         <div className={styles.cardsComponent}>
-          {currentCountries &&
-            currentCountries.map((e) => {
+          {countriesPage &&
+            countriesPage.map((e) => {
               return (
                 <div key={e.id}>
                   <Link to={"/home/" + e.id}>

@@ -16,11 +16,10 @@ export default function Paginado() {
 
   const currentPage = useSelector((state) => state.currentPage);
   const cardsPerPage = useSelector((state) => state.cardsPerPage);
+  // const order = useSelector((state) => state.orderName);
+  let auxMaxPage = Math.ceil(countriActiv.length / cardsPerPage);
 
-  let auxMaxPage = Math.floor(countriActiv.length / cardsPerPage);
-
-  if (auxMaxPage < 1) maxPages = 1;
-  else maxPages = auxMaxPage;
+  maxPages = auxMaxPage;
 
   useEffect(() => {
     setLocalCurrPage(currentPage);

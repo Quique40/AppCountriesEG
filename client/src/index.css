@@ -51,40 +51,35 @@ body {
 } */
 
 
-body {
-    /* max-width:max-content;  
-    max-height: max-content; */
-    /* height: 100%; */
-    /* width: 100%; */
-    /* background: url('https://sociales.uprrp.edu/geografia/wp-content/uploads/sites/12/2016/05/geografia_contenido2.jpg');
-    background-image: url("../../assets/BKG_BookStore2.png"); */
-    background-image: url("../src/images/background2.jpg") ;
-    background-color: papayawhip; 
-    background-size: cover;
+body {    
+    background-image: url("../src/images/background2.jpg");
+    /* background-color: papayawhip;      */
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* margin:0 auto;
-    border:auto;
-    margin: auto; */
-    /* min-height:auto;   */
-    
-    height: 100%;
-  
+    /* background-repeat:repeat; */
+    background-attachment: fixed;    
+    /* -webkit-font-smoothing: antialiased; */
+    /* background-image: url("../../assets/BKG_BookStore2.png"); */
+    /* background-size: contain; */
+    height: 100%;  
     max-width:max-content;  
-
-
     width:100%;
-    margin: 0 auto;
-    /* min-width:600px; */
-    /* max-width:2000px */
-    /* width:100vw */
-    /* max-width:1800px;  */
-    
+    margin: 0 auto;    
+    /*  */
+    font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  /* background-image: url("../src/images/BKG_BookStore2.png"); */
+  background-size: cover;
 }
 
-*{
+/* *{
   margin: 0 auto;
+  padding: 0;
+} */
+
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
   padding: 0;
 }
 

@@ -41,20 +41,23 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={Styles.form}>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <div className={Styles.form}>
+        {/* <div className={Styles.input}> */}
         <input
           type={"text"}
           placeholder={"Name country..."}
           value={name}
           onChange={(e) => handleInputChange(e)}
           name={"name"}
-          className={errors.name && Styles.danger}
+          className={errors.name ? Styles.danger : Styles.input}
         />
-
-        <input className={Styles.btn} type="submit" value="Find" />
-      </form>
+        {/* </div> */}
+        {/* <div className={Styles.btn}> */}
+        <input type="submit" className={Styles.btn} value="Find" />
+        {/* </div> */}
+      </div>
       {errors.name && <p>{errors.name}</p>}
-    </div>
+    </form>
   );
 }

@@ -73,6 +73,7 @@ export function filterCountriesByContinents(payload) {
 }
 
 export function filterCountriesByActivities(payload) {
+  console.log(payload);
   return {
     type: "FILTER_BY_ACTIVITIES",
     payload,
@@ -85,12 +86,25 @@ export function orderBy(payload) {
       type: "ORDER_BY_NAME",
       payload,
     };
-  } else {
+  }
+  if (payload === "asc-pop" || payload === "des-pop") {
     return {
       type: "ORDER_BY_POPULATION",
       payload: payload,
     };
   }
+  if (payload === "") {
+    return {
+      type: "NO_ORDER",
+      payload: payload,
+    };
+  }
+}
+
+export function cleanStateCountry() {
+  return {
+    type: "CLEAN_STATE",
+  };
 }
 
 export function changeSort(payload) {
