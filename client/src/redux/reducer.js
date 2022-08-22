@@ -2,9 +2,11 @@ const initialState = {
   allCountries: [],
   countryActivities: [],
   countryActBackup: [],
+  contryNoAct: [],
+  contryNoCont: [],
   notOrder: [],
   continentFilter: "All Continent",
-  activState: "Not activities",
+  activState: "",
 
   activities: [],
 
@@ -60,16 +62,19 @@ function reducer(state = initialState, { type, payload }) {
         countryActivities: payload,
         allCountries: payload,
         countryActBackup: payload,
+        contryNoAct: payload,
+        contryNoCont: payload,
         notOrder: payload,
-        activState: "Not activities",
+        activState: "",
         continentFilter: "All Continent",
       };
 
     case "FILTER_BY_CONTINENT":
+      const noCont = state.contryNoCont;
       const respCountries = state.countryActivities;
       const continentFilter =
         payload === "All Continent"
-          ? respCountries
+          ? noCont
           : respCountries.filter((el) => el.continent === payload);
 
       return {
@@ -78,25 +83,28 @@ function reducer(state = initialState, { type, payload }) {
         countryActBackup: continentFilter,
         continentFilter: payload,
       };
+    case "STATE_ACTIV":
+      return {
+        ...state,
+        activState: payload,
+      };
 
     case "FILTER_BY_ACTIVITIES":
+      const noActiv = state.contryNoAct;
       const allCountriesActiv = state.countryActBackup;
-      console.log(state.countryActBackup);
-      console.log(payload);
-      // if (payload === "Not Activities") {
-      //   console.log("hi");
-      //   return {
-      //     ...state,
-      //     countryActivities: state.countryActBackup,
-      //     allCountries: state.countryActBackup,
-      //     activState: payload,
-      //   };
-      // }
+      // const activFilter =
+      //   payload === "All Activities"
+      //     ? allCountriesActiv.filter((all) => all.activities.length > 0)
+      //     : allCountriesActiv.filter(
+      //         (el) =>
+      //           el.activities &&
+      //           el.activities.map((fil) => fil.name).includes(payload)
+      //       );
 
-      console.log("hi");
-      console.log(payload);
       const activFilter =
-        payload === "All Activities"
+        payload === ""
+          ? noActiv
+          : payload === "All Activities"
           ? allCountriesActiv.filter((all) => all.activities.length > 0)
           : allCountriesActiv.filter(
               (el) =>
@@ -104,17 +112,6 @@ function reducer(state = initialState, { type, payload }) {
                 el.activities.map((fil) => fil.name).includes(payload)
             );
 
-      // const activFilter =
-      //   payload === "Not Activities"
-      //     ? allCountriesActiv
-      //     : payload === "All Activities"
-      //     ? allCountriesActiv.filter((all) => all.activities.length > 0)
-      //     : allCountriesActiv.filter(
-      //         (el) =>
-      //           el.activities &&
-      //           el.activities.map((fil) => fil.name).includes(payload)
-      //       );
-      console.log(activFilter);
       return {
         ...state,
         countryActivities: activFilter,

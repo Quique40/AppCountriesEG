@@ -12,7 +12,8 @@ import {
   getCountriesActivities,
   filterCountriesByContinents,
   filterCountriesByActivities,
-  getAllActivities,
+  stateFilterActiv,
+  // getAllActivities,
   // cleanStateCountry,
 } from "../../redux/action";
 
@@ -23,21 +24,60 @@ export default function Nav() {
   const contFilter = useSelector((state) => state.continentFilter);
   // const countries = useSelector((state) => state.allCountries);
   // activState: "Not activities",
-  const activityState = useSelector((state) => state.activState);
+  const actState = useSelector((state) => state.activState);
 
   async function handleFilterContinent(e) {
     e.preventDefault();
     dispatch(filterCountriesByContinents(e.target.value));
+    console.log(e.target.value);
+    console.log(actState);
+
+    if (e.target.value === "All Continent") {
+      console.log("hi");
+      dispatch(stateFilterActiv(actState));
+      dispatch(filterCountriesByActivities(actState));
+    }
+
     dispatch(setCurrentPage(1));
     dispatch(changeSort(orderName));
-    dispatch(orderBy(orderName));
+    // dispatch(orderBy(orderName));
+    if (orderName) {
+      dispatch(orderBy(orderName));
+    }
   }
 
   async function handleFilterActivities(e) {
     e.preventDefault();
-    dispatch(filterCountriesByActivities(e.target.value));
-    dispatch(setCurrentPage(1));
 
+    // if (e.target.value === "") {
+    //   await dispatch(getCountriesActivities());
+    //   // dispatch(stateFilterActiv(e.target.value));
+    //   dispatch(setCurrentPage(1));
+    //   await dispatch(changeSort(orderName));
+    //   await dispatch(orderBy(orderName));
+
+    //   // if (orderName !== "") {
+    //   // }
+    // } else {
+    //   console.log("hi");
+    //   dispatch(stateFilterActiv(e.target.value));
+    //   dispatch(filterCountriesByActivities(e.target.value));
+    //   dispatch(setCurrentPage(1));
+    //   dispatch(changeSort(orderName));
+    //   if (orderName) {
+    //     dispatch(orderBy(orderName));
+    //   }
+    // }
+
+    dispatch(stateFilterActiv(e.target.value));
+    dispatch(filterCountriesByActivities(e.target.value));
+
+    if (e.target.value === "") {
+      dispatch(filterCountriesByContinents(contFilter));
+    }
+
+    dispatch(setCurrentPage(1));
+    dispatch(changeSort(orderName));
     if (orderName) {
       dispatch(orderBy(orderName));
     }
@@ -49,11 +89,10 @@ export default function Nav() {
       await dispatch(getCountriesActivities());
       dispatch(changeSort(""));
       dispatch(orderBy(""));
-      console.log(activityState);
+
       dispatch(filterCountriesByContinents(contFilter));
-      if (activityState !== "Not activities") {
-        console.log("hi");
-        await dispatch(filterCountriesByActivities(activityState));
+      if (actState !== "") {
+        await dispatch(filterCountriesByActivities(actState));
       }
 
       dispatch(setCurrentPage(1));
@@ -68,10 +107,7 @@ export default function Nav() {
     dispatch(setCurrentPage(1));
     dispatch(getCountriesActivities());
   };
-  useEffect(() => {
-    // dispatch(getCountriesActivities());
-    // dispatch(getAllActivities());
-  }, [dispatch]);
+  useEffect(() => {}, [dispatch]);
 
   return (
     <div className={styles.contain}>
@@ -124,7 +160,7 @@ export default function Nav() {
           defaultValue={"default"}
           onChange={(e) => handleFilterActivities(e)}
         >
-          <option value="Not Activities">Filter By Activities</option>
+          <option value="">Filter By Activities</option>
           <option value="All Activities">All Activities</option>
           {activities &&
             activities.map((el) => (

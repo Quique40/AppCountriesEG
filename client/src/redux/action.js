@@ -18,7 +18,6 @@ export function getNameCountries(name) {
   return async function (dispatch) {
     try {
       var json = await axios("http://localhost:3001/countries?name=" + name);
-      console.log(json.data);
 
       return dispatch({
         type: "GET_NAME_COUNTRIES",
@@ -26,7 +25,6 @@ export function getNameCountries(name) {
       });
     } catch (error) {
       if (error.response) {
-        console.log(error.response.data);
         alert(error.response.data);
       }
     }
@@ -73,7 +71,6 @@ export function filterCountriesByContinents(payload) {
 }
 
 export function filterCountriesByActivities(payload) {
-  console.log(payload);
   return {
     type: "FILTER_BY_ACTIVITIES",
     payload,
@@ -110,6 +107,13 @@ export function cleanStateCountry() {
 export function changeSort(payload) {
   return {
     type: "STATE_SORT",
+    payload,
+  };
+}
+
+export function stateFilterActiv(payload) {
+  return {
+    type: "STATE_ACTIV",
     payload,
   };
 }

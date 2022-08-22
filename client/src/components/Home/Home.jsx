@@ -27,7 +27,6 @@ export default function Home() {
     dispatch(getCountriesActivities());
   }, [dispatch]);
 
-  console.log(countriActiv);
   let indexOfLastCountry = currentPage * 10;
   let indexOfFirstCountry = indexOfLastCountry - 10;
 
@@ -36,7 +35,6 @@ export default function Home() {
     indexOfLastCountry
   );
 
-  console.log(countriesPage);
   return (
     <div className={styles.container}>
       <div>
