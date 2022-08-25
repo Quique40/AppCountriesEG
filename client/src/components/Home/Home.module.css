@@ -2,6 +2,17 @@
     
     flex-direction: column;
     height: 100%;
+    display: flex;
+    min-height: 100vh;
+    /* width: 75%; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 20px; */
+    
+    /* flex-direction: column; */
+    padding: 0;
+    /* justify-content: center; */
+    align-items: center;
+    /* padding-right:0em; */
 }
 
 .cardsCont{
@@ -10,8 +21,26 @@
     padding:0;
     margin-top: 5em;
     flex-direction: column;
+    align-items: center;
     
 }
+.singleCard{
+    display: flex;
+    /* min-width: 100%;
+    min-height: 100%; */
+    width: 300px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.singleCard a{
+    /* min-width: 15vw; */
+    width: 100%;
+    height: 100%;
+    /* margin: auto; */
+}
+
 
 
 
@@ -25,7 +54,10 @@
     display:grid;   
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 3em;
-    column-gap: 8em;    
+    column-gap: 4em; 
+    width: 90vw;   
+    margin: auto;
+    /* padding: 0 4rem; */
 }
 
 @media (max-width: 800px) {

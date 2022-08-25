@@ -46,7 +46,7 @@ export default function Detail(props) {
           </div>
 
           <div className={styles.return}>
-            <Link to="/home">
+            <Link to="/">
               <button className={styles.btn}>Return</button>
             </Link>
           </div>

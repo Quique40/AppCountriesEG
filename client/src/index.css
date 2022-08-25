@@ -62,9 +62,9 @@ body {
     /* background-image: url("../../assets/BKG_BookStore2.png"); */
     /* background-size: contain; */
     height: 100%;  
-    max-width:max-content;  
+    /* max-width:max-content;   */
     width:100%;
-    margin: 0 auto;    
+    /* margin: 0 auto;     */
     /*  */
     font-family: var(--font-poppins);
   -webkit-font-smoothing: antialiased;
@@ -79,6 +79,8 @@ body {
 
 * {
   /* box-sizing: border-box; */
+  /* left:0em; */
+  
   margin: 0;
   padding: 0;
 }

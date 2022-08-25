@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllCountries,
+  // getAllCountries,
   postActivities,
   getCountriesActivities,
   getAllActivities,
@@ -42,7 +42,7 @@ function Validate(input) {
 export default function NewActivities() {
   const dispatch = useDispatch();
 
-  const countries = useSelector((state) => state.countries);
+  const countries = useSelector((state) => state.allCountries);
   const history = useHistory();
 
   const [errors, setErrors] = useState({});
@@ -153,18 +153,18 @@ export default function NewActivities() {
         description: "",
         countries: [],
       });
-      history.push("/home");
+      history.push("/");
     }
   }
 
   useEffect(() => {
-    dispatch(getAllCountries());
+    // dispatch(getAllCountries());
     dispatch(getCountriesActivities());
   }, [dispatch]);
 
   return (
     <div>
-      <Link to="/home">
+      <Link to="/">
         <button className={Styles.btn}>Return</button>
       </Link>
       <h1>Creation of tourist activity</h1>
