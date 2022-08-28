@@ -1,27 +1,100 @@
 
 
-.flag{
-    position: absolute;    
-    top: 50px;
-    left: 257px;
+
+.contain{
+    
+    
+    
+  display: flex;
+  /* position: fixed;  */
+  width: 100vw;
+  height: 55px;
+  z-index: 99;
+  margin: 0;   
+  
+  /* padding:0 20%; */
+  justify-content: center;
+    
+
+}
+
+.cards{
+    /* margin: auto; */
+  /* align-items: center; */
+  display:flex;
+  /* flex-direction: row;  */
+  /* z-index: 99; */
+  justify-content: space-between;
+  width: 80%;
+  max-width: 900px;
+  margin-top: 10em;
+    
     
 }
 
-.detailCountry{
-    background-color: #F8C471;
-    position: absolute;
-    top: 200px;
-    left: 200px;
-    line-height:100%;
-    text-align: left;
-    border-radius: 10px;
-    padding: 0.8em;
+/* .country_activities{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed; 
+    width: 100%;
+    max-width: 600px;
+
+}  */
+
+.flag_description{
+    /* flex-direction: column;
+    height: 100%;
+    display: flex;
+    min-height: 100vh;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between; */
+    /* position: absolute; */
+    
+   
+    
+    
 }
 
+.flag{
+
+}
+.detailCountry{
+    background-color: #F8C471;
+    /* position: absolute; */
+    /* top: 200px; */
+    /* line-height:100%; */
+    text-align: left;
+    padding: 8px;
+    border: 7px solid #CC7800;
+    /* border-radius: 10px; */
+    /* padding: 6em; */
+    
+    /* align-items: center; */
+}
+
+.titleActivities{
+    background-color: #F8C471;    
+}
+
+
+.detailActivities{
+    /* position: absolute; */
+    background-color: #F8C471;    
+    
+    /* margin-top: 10em; */
+    
+    /* margin-left: 30em; */
+    /* align-items: center; */
+
+}
 .return{
-    position: absolute;
-    bottom: 150px;
-    left:295px;
+    /* position: absolute; */
+    /* bottom: 100px; */
+    /* margin-top: 50em; */
+    padding: 60px;
     
 }
 
@@ -40,20 +113,17 @@
     color:#F4D03F;
 }
 
-.detailActivities{
-    position: absolute;
-    top: 30px;
-    right: 330px;
-    background-color: #F8C471;
+.infoActiv{
+    background-color: #F8C471;    
+    
+    text-align: left;
+    margin-top: 1em;
+    padding: 8px;
+    border: 7px solid #CC7800;
     
 }
 
-
-.infoActiv{
-    
-    padding-top:0.017px;
-    padding-bottom: 0.017px;
-    line-height:45%;
-    text-align: left;
+p{
+    color: black;
 }
 

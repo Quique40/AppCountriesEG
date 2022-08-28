@@ -23,36 +23,37 @@ export default function Detail(props) {
   // console.log(myCountry.activities[0]);
 
   return (
-    <div>
+    <div className={styles.contain}>
       {myCountry ? (
-        <div className="cards">
-          <div className={styles.flag}>
-            <img
-              src={myCountry.flag}
-              alt={myCountry.flag}
-              width="200px"
-              height="140px"
-            />
-          </div>
+        <div className={styles.cards}>
+          <div className={styles.flag_description}>
+            <div className={styles.flag}>
+              <img
+                src={myCountry.flag}
+                alt={myCountry.flag}
+                width="200px"
+                height="140px"
+              />
+            </div>
 
-          <div className={styles.detailCountry}>
-            <h1>Country: {myCountry.name}</h1>
-            <p>Country code: {myCountry.id}</p>
-            <p>Continent: {myCountry.continent}</p>
-            <p>Capital: {myCountry.capital}</p>
-            <p>Subregión: {myCountry.subregion}</p>
-            <p>Area: {myCountry.area}</p>
-            <p>Population: {myCountry.population}</p>
-          </div>
-
-          <div className={styles.return}>
-            <Link to="/">
-              <button className={styles.btn}>Return</button>
-            </Link>
+            <div className={styles.detailCountry}>
+              <h1>Country: {myCountry.name}</h1>
+              <p>Country code: {myCountry.id}</p>
+              <p>Continent: {myCountry.continent}</p>
+              <p>Capital: {myCountry.capital}</p>
+              <p>Subregión: {myCountry.subregion}</p>
+              <p>Area: {myCountry.area}</p>
+              <p>Population: {myCountry.population}</p>
+            </div>
+            <div className={styles.return}>
+              <Link to="/">
+                <button className={styles.btn}>Return</button>
+              </Link>
+            </div>
           </div>
 
           <div className={styles.detailActivities}>
-            <h3>Actividades Turísticas:</h3>
+            <h3 className={styles.titleActivities}>Actividades Turísticas:</h3>
 
             {myCountry.activities?.map((i) => (
               <div className={styles.infoActiv} key={i.id}>

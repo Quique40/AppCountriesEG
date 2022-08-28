@@ -143,15 +143,17 @@ export default function Home() {
         <div className={styles.paginationTop}>
           <Pagination />
         </div>
-        <div>
-          <button
-            className={styles.reload}
-            onClick={(e) => {
-              handleReload(e);
-            }}
-          >
-            Reload Countries
-          </button>
+        <div className={styles.selectContain}>
+          <div className={styles.divReload}>
+            <button
+              className={styles.reload}
+              onClick={(e) => {
+                handleReload(e);
+              }}
+            >
+              Reload Countries
+            </button>
+          </div>
           <div className={styles.select}>
             <select
               className={styles.order}

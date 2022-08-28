@@ -1,5 +1,6 @@
 .cardContainer{
     background-color: #F8C471;
+    /* background-color: #F1C40F; */
     /* font-size: 15px;
     color: black; */
     line-height:100%;
@@ -21,7 +22,7 @@
 
 .flag{
     object-fit: contain;
-    width: 200px;
+    width: 280px;
     height: 140px;
 }
 
@@ -40,9 +41,10 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     color: #090446;
     font-weight: bold;
+    
     
 }
 

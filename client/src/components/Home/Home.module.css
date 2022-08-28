@@ -11,8 +11,9 @@
     /* flex-direction: column; */
     padding: 0;
     /* justify-content: center; */
-    align-items: center;
-    /* padding-right:0em; */
+    /* align-items: center; */
+    
+    
 }
 
 .cardsCont{
@@ -21,7 +22,9 @@
     padding:0;
     margin-top: 5em;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    
+    
     
 }
 .singleCard{
@@ -41,14 +44,91 @@
     /* margin: auto; */
 }
 
+/* .largerContainerSelect{
+    
+    display: flex;
+    
+    width: 100vw;
+    height: 55px;
+    z-index: 99;
+    
+    justify-content: center;
+} */
+
+.selectContain{
+    display: flex;
+    padding:3em;    
+    width: 100vw;
+    z-index: 99;
+    margin: auto;       
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+    width: 50%;
+    max-width: 800px;
+}
 
 
+.order{
+    background-color: #F8C471;
+    border:none;
+    color: black;
+    height: 35px;
+    width: 150px;
+    text-align: center;
+    font-size: larger;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+}
+
+.continent{
+    background-color: #F8C471;
+    border:none;
+    color: black;
+    height: 35px;
+    width: 200px;
+    text-align: center;
+    font-size: larger;
+    
+}
+
+.activity{
+    background-color: #F8C471;
+    border:none;
+    color: black;
+    height: 35px;
+    width: 200px;
+    text-align: center;
+    font-size: larger;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+.reload{
+    background-color: #F8C471;
+    border:none;
+    color: black;
+    height: 35px;
+    width: 180px;
+    text-align: center;
+    font-size: larger;
+    border-radius:10px;
+    
+    
+}
+.divReload{
+
+}
+
+.select{
+
+}
 
 .paginationTop{
-    padding-bottom: 3em;
+    padding-bottom: 0em;
 }
 .paginationBottom{
-    padding-top: 3em;
+    padding-top: 5em;
 }
 .cardsComponent{    
     display:grid;   
@@ -56,7 +136,9 @@
     grid-gap: 3em;
     column-gap: 4em; 
     width: 90vw;   
-    margin: auto;
+    
+
+    
     /* padding: 0 4rem; */
 }
 
@@ -86,11 +168,6 @@
 }
  */
 
-/* .reload{
-    position: relative;
-    left: 170px;
-    top: 90px;
-} */
 
 /* 
 .btn{

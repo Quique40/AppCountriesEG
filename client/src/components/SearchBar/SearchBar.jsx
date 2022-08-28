@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameCountries, setCurrentPage } from "../../redux/action";
+import { useHistory } from "react-router-dom";
 
 import Styles from "./SearchBar.module.css";
 
@@ -17,6 +18,7 @@ export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
+  const history = useHistory();
 
   let handleInputChange = (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ export default function SearchBar() {
       dispatch(getNameCountries(name));
       dispatch(setCurrentPage(1));
       setName("");
+      history.push("/");
     }
   }
 
