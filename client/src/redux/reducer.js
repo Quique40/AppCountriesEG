@@ -36,18 +36,20 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         detail: payload,
+        allCountries: [],
       };
 
     case "CLEAR_DETAIL":
       return {
         ...state,
         detail: [],
+        allCountries: [],
       };
 
     case "GET_NAME_COUNTRIES":
+      // console.log(payload);
       return {
         ...state,
-
         allCountries: payload,
       };
 
@@ -178,7 +180,7 @@ function reducer(state = initialState, { type, payload }) {
       };
 
     case "UPDATE_PAGE":
-      let countriesUpDate = state.allCountries;
+      // let countriesUpDate = state.allCountries;
       let currentPage = state.currentPage;
 
       if (payload === "next") currentPage++;
@@ -189,7 +191,7 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         currentPage: currentPage,
-        allCountries: countriesUpDate,
+        // allCountries: countriesUpDate,
       };
 
     default:

@@ -7,7 +7,7 @@ import {
   // orderBy,
   // changeSort,
   clearDetail,
-  getCountriesActivities,
+  // getCountriesActivities,
   getAllActivities,
   // filterCountriesByContinents,
   // filterCountriesByActivities,
@@ -18,13 +18,12 @@ import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import Filter from "../Filter/Filter";
 // import Nav from "../Nav/Nav";
-import styles from "../Home/Home.module.css";
+import styles from "../Searching/Searching.module.css";
 
-export default function Home() {
+export default function Searching() {
   const dispatch = useDispatch();
   const countriActiv = useSelector((state) => state.allCountries);
   const currentPage = useSelector((state) => state.currentPage);
-  // console.log(countriActiv);
   // const activities = useSelector((state) => state.activities);
 
   // const actState = useSelector((state) => state.activState);
@@ -47,75 +46,11 @@ export default function Home() {
     indexOfLastCountry
   );
 
-  // async function handleFilterContinent(e) {
-  //   e.preventDefault();
-  //   dispatch(filterCountriesByContinents(e.target.value));
-  //   console.log(e.target.value);
-  //   console.log(actState);
-
-  //   if (e.target.value === "All Continent") {
-  //     console.log("hi");
-  //     dispatch(stateFilterActiv(actState));
-  //     dispatch(filterCountriesByActivities(actState));
-  //   }
-
-  //   dispatch(setCurrentPage(1));
-  //   dispatch(changeSort(orderName));
-
-  //   if (orderName) {
-  //     dispatch(orderBy(orderName));
-  //   }
-  // }
-
-  // async function handleFilterActivities(e) {
-  //   e.preventDefault();
-
-  //   dispatch(stateFilterActiv(e.target.value));
-  //   dispatch(filterCountriesByActivities(e.target.value));
-
-  //   if (e.target.value === "") {
-  //     dispatch(filterCountriesByContinents(contFilter));
-  //   }
-
-  //   dispatch(setCurrentPage(1));
-  //   dispatch(changeSort(orderName));
-  //   if (orderName) {
-  //     dispatch(orderBy(orderName));
-  //   }
-  // }
-
-  // async function handleSortName(e) {
-  //   e.preventDefault();
-  //   if (e.target.value === "") {
-  //     await dispatch(getCountriesActivities());
-  //     dispatch(changeSort(""));
-  //     dispatch(orderBy(""));
-
-  //     dispatch(filterCountriesByContinents(contFilter));
-  //     if (actState !== "") {
-  //       await dispatch(filterCountriesByActivities(actState));
-  //     }
-
-  //     dispatch(setCurrentPage(1));
-  //   } else {
-  //     dispatch(changeSort(e.target.value));
-  //     dispatch(orderBy(e.target.value));
-  //     dispatch(setCurrentPage(1));
-  //   }
-  // }
-
-  // let handleReload = (e) => {
-  //   e.preventDefault();
-  //   dispatch(setCurrentPage(1));
-  //   dispatch(getCountriesActivities());
-  // };
-
   useEffect(() => {
-    dispatch(clearDetail());
-    dispatch(getAllActivities());
-    dispatch(getCountriesActivities());
+    // dispatch(clearDetail());
+    // dispatch(getAllActivities());
+    // dispatch(getCountriesActivities());
   }, [dispatch]);
-
   return (
     <div className={styles.container}>
       {/* <div>

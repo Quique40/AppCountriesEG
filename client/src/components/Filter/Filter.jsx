@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import {
   orderBy,
@@ -28,6 +29,7 @@ export default function Filter() {
 
   // eslint-disable-next-line
   const orderName = useSelector((state) => state.orderName);
+  const history = useHistory();
 
   async function handleFilterContinent(e) {
     e.preventDefault();
@@ -110,12 +112,13 @@ export default function Filter() {
     e.preventDefault();
     dispatch(setCurrentPage(1));
     dispatch(getCountriesActivities());
+    history.push("/");
   };
 
   useEffect(() => {
-    dispatch(clearDetail());
-    dispatch(getAllActivities());
-    dispatch(getCountriesActivities());
+    // dispatch(clearDetail());
+    // dispatch(getAllActivities());
+    // dispatch(getCountriesActivities());
   }, [dispatch]);
 
   return (

@@ -15,14 +15,14 @@ export default function Detail(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCountries());
-    dispatch(getCountriesActivities());
+    // dispatch(getAllCountries());
+    // dispatch(getCountriesActivities());
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
 
   // console.log(myCountry);
   // console.log(myCountry.activities[0]);
-  console.log(Route);
+
   return (
     <div className={styles.contain}>
       {myCountry ? (

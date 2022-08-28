@@ -29,17 +29,17 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(name);
+    // console.log(name);
     if (!name) {
       alert("You must write the name of a country");
       return;
     }
-
+    // console.log(name);
     if (Object.values(errors).length === 0) {
-      history.push("/");
       dispatch(getNameCountries(name));
       dispatch(setCurrentPage(1));
       setName("");
+      history.push("/searching");
     }
   }
 
