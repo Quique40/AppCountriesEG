@@ -36,10 +36,10 @@ export default function SearchBar() {
     }
 
     if (Object.values(errors).length === 0) {
+      history.push("/");
       dispatch(getNameCountries(name));
       dispatch(setCurrentPage(1));
       setName("");
-      history.push("/");
     }
   }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -19,9 +20,9 @@ export default function Detail(props) {
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
 
-  console.log(myCountry);
+  // console.log(myCountry);
   // console.log(myCountry.activities[0]);
-
+  console.log(Route);
   return (
     <div className={styles.contain}>
       {myCountry ? (
