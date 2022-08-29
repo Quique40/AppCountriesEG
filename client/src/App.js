@@ -8,6 +8,7 @@ import DetailCountries from "./components/DetailCountries/DetailCountries.jsx";
 // import Nav from "../Nav/Nav";
 // import Nav from "../src/components/Nav/Nav";
 import Nav from "./components/Nav/Nav.jsx";
+import Footer from "./components/Footer/Footer";
 import Searching from "./components/Searching/Searching";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/activities" component={NewActivities} />
       <Route exact path="/detail/:id" component={DetailCountries} />
+      <Footer />
       {/* </Switch> */}
     </div>
     // {/* </BrowserRouter> */}
