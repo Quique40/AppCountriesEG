@@ -47,7 +47,6 @@ function reducer(state = initialState, { type, payload }) {
       };
 
     case "GET_NAME_COUNTRIES":
-      // console.log(payload);
       return {
         ...state,
         allCountries: payload,
@@ -94,14 +93,6 @@ function reducer(state = initialState, { type, payload }) {
     case "FILTER_BY_ACTIVITIES":
       const noActiv = state.contryNoAct;
       const allCountriesActiv = state.countryActBackup;
-      // const activFilter =
-      //   payload === "All Activities"
-      //     ? allCountriesActiv.filter((all) => all.activities.length > 0)
-      //     : allCountriesActiv.filter(
-      //         (el) =>
-      //           el.activities &&
-      //           el.activities.map((fil) => fil.name).includes(payload)
-      //       );
 
       const activFilter =
         payload === ""
@@ -163,7 +154,6 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         allCountries: noOrder,
-        // orderName: payload,
       };
 
     case "STATE_SORT":
@@ -180,7 +170,6 @@ function reducer(state = initialState, { type, payload }) {
       };
 
     case "UPDATE_PAGE":
-      // let countriesUpDate = state.allCountries;
       let currentPage = state.currentPage;
 
       if (payload === "next") currentPage++;
@@ -191,7 +180,6 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         currentPage: currentPage,
-        // allCountries: countriesUpDate,
       };
 
     default:

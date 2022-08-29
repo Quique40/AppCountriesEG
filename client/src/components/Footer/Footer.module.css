@@ -6,17 +6,12 @@
   height: 55px;
   z-index: 99;
   margin: 0;   
-  /* top: 0; */
   bottom: 0;
-  /* padding:0 20%; */
   justify-content: center;
 }
-.contain{
-   /* margin: auto; */
+.contain{   
    align-items: center;
    display:flex;
-   /* flex-direction: row;  */
-   /* z-index: 99; */
    justify-content: space-between;
    width: 50%;
    max-width: 400px;
@@ -27,13 +22,9 @@
 } */
 .divLinkedin{
   display: flex;
-  /* width: 30px;
-  height: 30px; */
 }
 .divGithub{
   display: flex;
-  /* width: 30px;
-  height: 30px; */
 }
 
 .linkedin{
@@ -45,4 +36,8 @@
   display: flex;
   width: 30px;
   height: 30px;
+}
+
+h3{
+  font-family:'Courier New', Courier, monospace;
 }

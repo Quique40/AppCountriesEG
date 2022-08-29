@@ -13,8 +13,7 @@ import Styles from "./SearchBar.module.css";
 function Validate(name) {
   let error = {};
 
-  if (name.length < 2)
-    error.name = "Se deben ingresar mas de 2 caracteres como mínimo";
+  if (name.length < 2) error.name = "You must write at least 2 characters";
   return error;
 }
 
@@ -33,12 +32,10 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(name);
     if (!name) {
       alert("You must write the name of a country");
       return;
     }
-    // console.log(name);
     if (Object.values(errors).length === 0) {
       dispatch(getNameCountries(name));
       dispatch(setCurrentPage(1));
@@ -51,7 +48,6 @@ export default function SearchBar() {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className={Styles.form}>
-        {/* <div className={Styles.input}> */}
         <input
           type={"text"}
           placeholder={"Name country..."}
@@ -60,12 +56,12 @@ export default function SearchBar() {
           name={"name"}
           className={errors.name ? Styles.danger : Styles.input}
         />
-        {/* </div> */}
-        {/* <div className={Styles.btn}> */}
+
         <input type="submit" className={Styles.btn} value="Find" />
-        {/* </div> */}
       </div>
-      {errors.name && <p>{errors.name}</p>}
+      <div className={Styles.divError}>
+        {errors.name && <p>{errors.name}</p>}
+      </div>
     </form>
   );
 }

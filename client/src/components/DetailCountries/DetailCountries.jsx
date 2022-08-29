@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  getDetail,
-  getAllCountries,
-  getCountriesActivities,
-} from "../../redux/action";
+import { getDetail } from "../../redux/action";
 import styles from "./DetailCountries.module.css";
 
 export default function Detail(props) {
@@ -15,13 +10,8 @@ export default function Detail(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getAllCountries());
-    // dispatch(getCountriesActivities());
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
-
-  // console.log(myCountry);
-  // console.log(myCountry.activities[0]);
 
   return (
     <div className={styles.contain}>
@@ -54,7 +44,7 @@ export default function Detail(props) {
           </div>
 
           <div className={styles.detailActivities}>
-            <h3 className={styles.titleActivities}>Actividades Turísticas:</h3>
+            <h2 className={styles.titleActivities}>Tourist activities:</h2>
 
             {myCountry.activities?.map((i) => (
               <div className={styles.infoActiv} key={i.id}>

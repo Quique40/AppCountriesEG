@@ -1,23 +1,12 @@
 .cardContainer{
     background-color: #F8C471;
-    /* background-color: #F1C40F; */
-    /* font-size: 15px;
-    color: black; */
     line-height:100%;
-
     border-radius: 10px;
     padding:1em;
-
-    /* padding: 0px; */
     margin-top: 0px;
-
-    /* width: 15vw; */
     width: 100%;
-    height: 100%;
-    
+    height: 100%;    
     white-space: nowrap;
-    /* text-overflow: ellipsis; */
-    /* overflow: hidden; */
 }
 
 .flag{
@@ -32,8 +21,7 @@
     justify-content: center;
     font-size: 1.2rem;
     color: #090446;
-    padding: 0.4em;
-    
+    padding: 0.4em;    
 }
 
 .name{
@@ -43,8 +31,7 @@
     text-align: center;
     font-size: 1.8rem;
     color: #090446;
-    font-weight: bold;
-    
+    font-weight: bold; 
     
 }
 
@@ -54,19 +41,13 @@ a{
 
 @media (max-width: 800px) {
     .cardContainer{
-        background-color: #F8C471;
-    /* font-size: 15px;
-    color: black; */
-    line-height:100%;
-
-    border-radius: 10px;
-    padding:1em;
-
-    /* width: 130px; */
-    /* height: 130px; */
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;   
+        background-color: #F8C471;        
+        line-height:100%;
+        border-radius: 10px;
+        padding:1em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;   
     }   
 
     .continent{

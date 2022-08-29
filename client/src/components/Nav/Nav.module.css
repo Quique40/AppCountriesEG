@@ -8,53 +8,25 @@
   z-index: 99;
   margin: 0;   
   top: 0;
-  /* padding:0 20%; */
   justify-content: center;
   
 }
 
 
 .contain{
-  /* margin: auto; */
   align-items: center;
   display:flex;
-  /* flex-direction: row;  */
-  /* z-index: 99; */
   justify-content: space-between;
-  width: 70%;
-  max-width: 800px;
+  width: 100%;
+  max-width:800px;
 }
-
-/* .btnIntro{
-  border:none;
-  background-color: #F8C471;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;  
-  top:0.8em;  
-  left: 1.5em;
-  position: absolute;  
-} */
-
-/* .divActivity{ */
-  /* top:0.8em;   */
-  
-  /* margin: 0em; */
-/* } */
 
 .btnActivity{
   border:none;
   background-color: #F8C471;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;
-  /* top:0.8em;  
-  position: absolute;
-  margin: 0em; */
+  font-size: 20px; 
 }
-/* .searchBar{ */
-  /* position:absolute; */
-  /* left:0.5em; */
-  /* top:12% */
-/* } */
 
 .reload{
   border:none;

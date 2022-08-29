@@ -3,16 +3,8 @@
     flex-direction: column;
     height: 100%;
     display: flex;
-    min-height: 100vh;
-    /* width: 75%; */
-    /* margin-top: 10px; */
-    /* margin-bottom: 20px; */
-    
-    /* flex-direction: column; */
+    min-height: 100vh;    
     padding: 0;
-    /* justify-content: center; */
-    /* align-items: center; */
-    
     
 }
 
@@ -22,38 +14,21 @@
     padding:0;
     margin-top: 5em;
     flex-direction: column;
-    /* align-items: center; */
-    
-    
-    
+    align-items: center;
 }
 .singleCard{
     display: flex;
-    /* min-width: 100%;
-    min-height: 100%; */
     width: 300px;
     height: 200px;
     justify-content: center;
     align-items: center;
     margin: auto;
 }
-.singleCard a{
-    /* min-width: 15vw; */
+.singleCard a{    
     width: 100%;
-    height: 100%;
-    /* margin: auto; */
+    height: 100%;    
 }
 
-/* .largerContainerSelect{
-    
-    display: flex;
-    
-    width: 100vw;
-    height: 55px;
-    z-index: 99;
-    
-    justify-content: center;
-} */
 
 .selectContain{
     display: flex;
@@ -64,8 +39,6 @@
     align-items: center;
     display:flex;
     justify-content: space-between;
-    /* width: 50%; */
-    /* max-width: 800px; */
 }
 
 
@@ -136,10 +109,6 @@
     grid-gap: 3em;
     column-gap: 4em; 
     width: 90vw;   
-    
-
-    
-    /* padding: 0 4rem; */
 }
 
 @media (max-width: 800px) {
@@ -151,58 +120,3 @@
  }   
 }
 
-/* 
-.buttons{
-    position: absolute;
-    right:40px;
-    top: 20px;
-    padding: 0%;
-} */
-
-
-/* 
-.searchBar{
-    position: absolute;
-    right: 170px;
-    top: 90px;
-}
- */
-
-
-/* 
-.btn{
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 10px;
-    background-color:#F4D03F ;
-    color: white;
-    font-weight: bold;
-    border: none;
-} */
-
-/* 
-.btn2{
-    border-radius: 10px;
-    font-size: 15px;
-    padding: 7px;
-    margin-left: 6px;
-    background-color:#F4D03F ;
-    color: white;
-    font-weight: bold;
-    border: none;
-} */
-
-/* 
-.ordFilter{
-    
-    position: relative;
-    left: 40px;
-    top: 90px;
-    
-} */
-
-/* .cards */
-/* display: inline-block;
-margin-left: 1em;
-margin-right: 1em;
-margin-top: 4em;     */
