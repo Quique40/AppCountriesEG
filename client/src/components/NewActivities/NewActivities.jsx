@@ -12,30 +12,34 @@ import Styles from "./NewActivities.module.css";
 
 function Validate(input) {
   let errors = {};
+
   if (!input.name) errors.name = "Se requiere un nombre de actividad turistica";
   if (typeof input.name !== "string") errors.name = "debe ser solo letras";
-  else if (input.name.length > 20)
+  if (input.name.length > 20)
     errors.name =
       "El nombre de la actividad turística no debe superar de 20 caracteres";
-  else if (!input.difficulty)
+  if (!input.difficulty)
     errors.difficulty = "Debe seleccionar una grado de dificultad";
-  else if (!input.duration)
+  if (!input.duration)
     errors.duration = "Se requiere agregar duración de actividad turística";
-  else if (input.duration < 1 || input.duration > 48)
+  if (input.duration < 1 || input.duration > 48)
     errors.duration = "El tiempo de duración es entre 1hs - 48hs";
-  else if (!input.season)
+  if (!input.season)
     errors.season =
       "Se requiere seleccionar la temporada en la que se realiza la actividad turística";
-  else if (!input.description)
+  if (!input.description)
     errors.description =
       "Se requiere agregar descripción de esta actividad turísitica";
-  else if (input.description.length > 100)
+  if (input.description.length > 100)
     errors.description =
       "La máxima cantidad de caracteres para escribir la descripción es de 100 caracteres";
-  else if (!input.countries)
+  // else if (!input.countries) {
+  if (input.countries.length === 0) {
+    console.log("hi");
     errors.countries =
       "Se requiere seleccionar el o los países donde se desarrolla esta actividad turística";
-
+  }
+  console.log(input.countries.length);
   return errors;
 }
 
@@ -94,12 +98,18 @@ export default function NewActivities() {
   function handleSelectCountries(e) {
     if (
       !input.countries.includes(e.target.value) &&
-      e.target.value !== "country"
+      e.target.value !== "Choose the country"
     ) {
       setInput({
         ...input,
         countries: [...input.countries, e.target.value],
       });
+      setErrors(
+        Validate({
+          ...input,
+          countries: [...input.countries, e.target.value],
+        })
+      );
     } else {
       return alert(
         "You have already added this country to the list. Please select another country or continue filling out the form."
@@ -162,108 +172,132 @@ export default function NewActivities() {
     dispatch(getCountriesActivities());
   }, [dispatch]);
 
+  console.log(errors);
+  console.log(input.countries);
+
   return (
-    <div>
-      <Link to="/">
-        <button className={Styles.btn}>Return</button>
-      </Link>
-      <h1>Creation of tourist activity</h1>
-      <form className={Styles.form} onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            onChange={(e) => handleChange(e)}
-            className={errors.name && Styles.danger}
-          />
-          {errors.name && <p>{errors.name}</p>}
+    <div className={Styles.containMaster}>
+      <div className={Styles.contain}>
+        <div className={Styles.description}>
+          <form className={Styles.form} onSubmit={(e) => handleSubmit(e)}>
+            <div className={Styles.titleActivities}>
+              <h2>Creation of tourist activity</h2>
+            </div>
+            <div className={Styles.divName}>
+              <label>Name:</label>
+              <input
+                type="text"
+                value={input.name}
+                name="name"
+                onChange={(e) => handleChange(e)}
+                // className={errors.name && Styles.danger}
+                className={errors.name ? Styles.danger : Styles.name}
+              />
+              {errors.name && <h4>{errors.name}</h4>}
+            </div>
+            <div className={Styles.divDifficulty}>
+              <label>Difficulty:</label>
+              <select
+                className={errors.difficulty && Styles.danger}
+                defaultValue={"default"}
+                onChange={(e) => handleSelectDificulty(e)}
+              >
+                <option value={"default"} disabled>
+                  select
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              {errors.difficulty && <h4>{errors.difficulty}</h4>}
+            </div>
+            <div className={Styles.divName}>
+              <label>Duration (48 hs máx):</label>
+              <input
+                type="number"
+                value={input.duration}
+                name="duration"
+                onChange={(e) => handleChange(e)}
+                className={errors.duration && Styles.danger}
+              />
+              {errors.duration && <h4>{errors.duration}</h4>}
+            </div>
+            <div className={Styles.divCountry}>
+              <label>Country:</label>
+              <select
+                className={errors.countries && Styles.danger}
+                defaultValue={"default"}
+                onChange={(e) => handleSelectCountries(e)}
+              >
+                <option value={"default"} disabled>
+                  Choose the country
+                </option>
+                {countries.map((el) => (
+                  <option value={el.name} key={el.id}>
+                    {el.name}
+                  </option>
+                ))}
+              </select>
+              {errors.countries && <h4>{errors.countries}</h4>}
+            </div>
+            <div className={Styles.divDescription}>
+              <label>Description:</label>
+              <input
+                type="text"
+                value={input.description}
+                name="description"
+                onChange={(e) => handleChange(e)}
+                className={errors.description && Styles.danger}
+              />
+              {errors.description && <h4>{errors.description}</h4>}
+            </div>
+            <div className={Styles.divSeason}>
+              <label>Season:</label>
+              <select
+                className={errors.season && Styles.danger}
+                defaultValue={"default"}
+                onChange={(e) => handleSelectSeason(e)}
+              >
+                <option value={"default"} disabled>
+                  select
+                </option>
+                <option value="Winter">Winter</option>
+                <option value="Fall">Fall</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+              </select>
+              {errors.season && <h4>{errors.season}</h4>}
+            </div>
+            <div className={Styles.divCreate}>
+              <input className={Styles.create} type="submit" value="Create" />
+            </div>
+            <div className={Styles.divReturn}>
+              <Link to="/">
+                <button className={Styles.btn}>Return</button>
+              </Link>
+            </div>
+          </form>
         </div>
-        <div>
-          <label>Difficulty:</label>
-          <select
-            className={errors.name && Styles.danger}
-            defaultValue={"default"}
-            onChange={(e) => handleSelectDificulty(e)}
-          >
-            <option value={"default"} disabled>
-              select
-            </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          {errors.difficulty && <p>{errors.difficulty}</p>}
+        <div className={Styles.containCountries}>
+          {input.countries.map((el) => (
+            <div key={el} className={Styles.listCountries}>
+              <div>
+                <h2>{el}</h2>
+              </div>
+              <div className={Styles.divDelete}>
+                <button
+                  className={Styles.btnDelete}
+                  onClick={() => handleDelete(el)}
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-        <div>
-          <label>Duration (48 hs máx):</label>
-          <input
-            type="number"
-            value={input.duration}
-            name="duration"
-            onChange={(e) => handleChange(e)}
-            className={errors.name && Styles.danger}
-          />
-          {errors.duration && <p>{errors.duration}</p>}
-        </div>
-        <div>
-          <label>Country:</label>
-          <select
-            className={errors.name && Styles.danger}
-            defaultValue={"default"}
-            onChange={(e) => handleSelectCountries(e)}
-          >
-            <option value={"default"} disabled>
-              Choose the country
-            </option>
-            {countries.map((el) => (
-              <option value={el.name} key={el.id}>
-                {el.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Description:</label>
-          <input
-            type="text"
-            value={input.description}
-            name="description"
-            onChange={(e) => handleChange(e)}
-            className={errors.name && Styles.danger}
-          />
-          {errors.description && <p>{errors.description}</p>}
-        </div>
-        <div>
-          <label>Season:</label>
-          <select
-            className={errors.name && Styles.danger}
-            defaultValue={"default"}
-            onChange={(e) => handleSelectSeason(e)}
-          >
-            <option value={"default"} disabled>
-              select
-            </option>
-            <option value="Winter">Winter</option>
-            <option value="Fall">Fall</option>
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-          </select>
-          {errors.difficulty && <p>{errors.difficulty}</p>}
-        </div>
-        <div>
-          <input className={Styles.create} type="submit" value="Create" />
-        </div>
-      </form>
-      {input.countries.map((el) => (
-        <div key={el}>
-          <p>{el}</p>
-          <button onClick={() => handleDelete(el)}>X</button>
-        </div>
-      ))}
+      </div>
     </div>
   );
 }
