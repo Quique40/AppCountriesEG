@@ -1,15 +1,17 @@
 import axios from "axios";
 
+axios.defaults.baseURL = "https://appcountries.onrender.com";
+
 export function getAllCountries() {
   return async (dispatch) => {
-    const res = await axios("http://localhost:3001/countries");
+    const res = await axios("/countries");
     return dispatch({ type: "GET_COUNTRIES", payload: res.data });
   };
 }
 
 export function getAllActivities() {
   return async (dispatch) => {
-    const act = await axios("http://localhost:3001/readActivities");
+    const act = await axios("/readActivities");
     return dispatch({ type: "GET_ACTIVITIES", payload: act.data });
   };
 }
@@ -17,7 +19,7 @@ export function getAllActivities() {
 export function getNameCountries(name) {
   return async function (dispatch) {
     try {
-      var json = await axios("http://localhost:3001/countries?name=" + name);
+      var json = await axios("/countries?name=" + name);
 
       return dispatch({
         type: "GET_NAME_COUNTRIES",
@@ -34,10 +36,7 @@ export function getNameCountries(name) {
 export function postActivities(payload) {
   return async function (dispatch) {
     try {
-      const response = await axios.post(
-        "http://localhost:3001/activities",
-        payload
-      );
+      const response = await axios.post("/activities", payload);
 
       alert(response.data);
       return response;
@@ -52,7 +51,7 @@ export function postActivities(payload) {
 export function getCountriesActivities() {
   return async (dispatch) => {
     try {
-      var response = await axios("http://localhost:3001/complete");
+      var response = await axios("/complete");
       return dispatch({
         type: "GET_COUNTRIES_ACTIVITIES",
         payload: response.data,
@@ -121,7 +120,7 @@ export function stateFilterActiv(payload) {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      var json = await axios("http://localhost:3001/countries/" + id);
+      var json = await axios("/countries/" + id);
 
       return dispatch({
         type: "GET_DETAIL",
