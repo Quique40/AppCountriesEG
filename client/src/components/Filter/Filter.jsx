@@ -117,7 +117,7 @@ export default function Filter() {
 
   useEffect(() => {
     // dispatch(clearDetail());
-    // dispatch(getAllActivities());
+    dispatch(getAllActivities());
     // dispatch(getCountriesActivities());
   }, [dispatch]);
 
