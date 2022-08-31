@@ -20,6 +20,11 @@ import styles from "../Filter/Filter.module.css";
 export default function Filter() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    // dispatch(clearDetail());
+    dispatch(getAllActivities());
+    // dispatch(getCountriesActivities());
+  }, [dispatch]);
   // const countriActiv = useSelector((state) => state.allCountries);
   // const currentPage = useSelector((state) => state.currentPage);
   const activities = useSelector((state) => state.activities);
@@ -114,12 +119,6 @@ export default function Filter() {
     dispatch(getCountriesActivities());
     history.push("/");
   };
-
-  useEffect(() => {
-    // dispatch(clearDetail());
-    dispatch(getAllActivities());
-    // dispatch(getCountriesActivities());
-  }, [dispatch]);
 
   return (
     <div className={styles.containFilter}>
