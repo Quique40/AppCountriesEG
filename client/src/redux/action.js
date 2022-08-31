@@ -1,6 +1,10 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://appcountries.onrender.com";
+const localhost = "http://localhost:3001";
+// const render = `https://appcountries.onrender.com`;
+
+axios.defaults.baseURL = localhost;
+// axios.defaults.baseURL = "https://appcountries.onrender.com";
 
 export function getAllCountries() {
   return async (dispatch) => {

@@ -151,7 +151,7 @@ export default function NewActivities() {
       });
     } else {
       dispatch(getCountriesActivities());
-      dispatch(postActivities(input));
+      await dispatch(postActivities(input));
       await dispatch(getAllActivities());
 
       setInput({
@@ -269,13 +269,15 @@ export default function NewActivities() {
               </select>
               {errors.season && <h4>{errors.season}</h4>}
             </div>
-            <div className={Styles.divCreate}>
-              <input className={Styles.create} type="submit" value="Create" />
-            </div>
-            <div className={Styles.divReturn}>
-              <Link to="/">
-                <button className={Styles.btn}>Return</button>
-              </Link>
+            <div className={Styles.divButtom}>
+              <div className={Styles.divCreate}>
+                <input className={Styles.create} type="submit" value="Create" />
+              </div>
+              <div className={Styles.divReturn}>
+                <Link to="/">
+                  <button className={Styles.btn}>Return</button>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
