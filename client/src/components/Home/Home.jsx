@@ -43,7 +43,11 @@ export default function Home() {
         <div className={styles.selectContain}>
           <Filter />
         </div>
-        <div className={styles.cardsComponent}>
+        <div
+          className={
+            countriesPage.length > 0 ? styles.cardsComponent : styles.loading
+          }
+        >
           {/* {countriesPage &&
             countriesPage.map((e) => {
               return (
